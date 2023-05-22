@@ -1,0 +1,12 @@
+{
+    "name": "morpht/mdt",
+    "description": "Morpht Development Tools",
+    "type": "composer-plugin",
+    "license": "GPL-2.0-only",
+    "authors": [
+        {
+            "name": "Morpht",
+            "email": "murray@morpht.com"
+        }
+    ]
+}
