@@ -2,11 +2,20 @@
     "name": "morpht/mdt",
     "description": "Morpht Development Tools",
     "type": "project",
+    "keywords": [
+        "automation",
+        "development",
+        "deployment",
+        "drupal"
+    ],
     "license": "GPL-2.0-only",
     "authors": [
         {
             "name": "Morpht",
             "email": "murray@morpht.com"
         }
-    ]
+    ],
+    "extra": {
+        "class": "Morpht\\Mdt\\Composer\\Plugin",
+    },
 }
