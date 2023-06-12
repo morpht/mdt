@@ -15,7 +15,10 @@
             "email": "murray@morpht.com"
         }
     ],
-    "extra": {
-        "class": "Morpht\\Mdt\\Composer\\Plugin",
+    "conflict": {
+        "drupal/core": "<10"
     },
+    "suggest": {
+        "pantheon-systems/drupal-integrations": "Required for pantheon settings configuration file."
+    }
 }

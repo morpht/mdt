@@ -8,9 +8,9 @@
  * filename is 'sites/SITE/settings.loc.php'.
  */
 
-$loc_db_name = 'drupal9';
-$loc_db_user = 'drupal9';
-$loc_db_pass = 'drupal9';
+$loc_db_name = 'drupal10';
+$loc_db_user = 'drupal10';
+$loc_db_pass = 'drupal10';
 $loc_db_host = 'database';
 $loc_db_port = '3306';
 
