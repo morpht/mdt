@@ -48,7 +48,6 @@
                     "overwrite": false
                 },
                 "[web-root]/sites/development.services.yml": "assets/development.services.yml",
-                ".lando/artefact.sh": "assets/lando/artefact.sh",
                 ".lando/fresh-install.sh": "assets/lando/fresh-install.sh",
                 ".lando/setup_terminus.sh": "assets/lando/setup_terminus.sh",
                 ".lando/verify_mac_ssh_socket.sh": "assets/lando/verify_mac_ssh_socket.sh",
