@@ -12,7 +12,7 @@ echo "# Importing configuration...\n";
 passthru('drush config-import -y');
 echo "# Import of configuration complete.\n";
 
-# morpht-28909 workaround. Call import for the second time.
+# Workaround. Call import for the second time.
 echo "# Importing configuration, second try...\n";
 passthru('drush config-import -y');
 echo "# Import of configuration, second try, complete.\n";
