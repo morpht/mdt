@@ -1,7 +1,7 @@
 {
     "name": "morpht/mdt",
     "description": "Morpht Development Tools",
-    "type": "composer-plugin",
+    "type": "project",
     "license": "GPL-2.0-only",
     "authors": [
         {
