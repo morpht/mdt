@@ -81,7 +81,7 @@ $settings['extension_discovery_scan_tests'] = FALSE;
  *      the site settings remain consistent.
  */
 if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
-  include __DIR__ . "/settings.pantheon.php";
+  include __DIR__ . "../settings.pantheon.php";
 }
 
 // Morpht's environment-specific settings on Pantheon.
