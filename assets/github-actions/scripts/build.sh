@@ -5,6 +5,7 @@
 
 # Fail immediately when any command fails:
 set -e
+set -o pipefail
 
 # Debug output?
 if [ "${DEBUG}" == "true" ]; then
@@ -35,7 +36,7 @@ git --version
 # Prepare variables.
 FOLDER_GITHUB=$(pwd)
 PROJECT_NAME="$(basename `pwd`)"
-FOLDER_HOSTING="$FOLDER_GITHUB/../hosting"
+FOLDER_HOSTING="$(dirname `pwd`)/hosting"
 mkdir -p $FOLDER_HOSTING
 echo "# Github folder: $FOLDER_GITHUB"
 echo "# Hosting folder: $FOLDER_HOSTING"
@@ -112,10 +113,33 @@ echo "# Hosting branch for a build: $BRANCHNAME_HOSTING."
 echo "FOLDER_HOSTING: $FOLDER_HOSTING"
 echo "GIT_REMOTE: $GIT_REMOTE"
 echo "BRANCHNAME_HOSTING: $BRANCHNAME_HOSTING"
+
 cd "$FOLDER_HOSTING"
+
+# cloning remote to the current directory:
 git clone "$GIT_REMOTE" .
-git fetch origin
-git switch "${BRANCHNAME_HOSTING}" || git checkout -b "${BRANCHNAME_HOSTING}"
+
+DEFAULT_HOSTING="$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)"
+echo "DEFAULT_HOSTING: $DEFAULT_HOSTING"
+
+# if we cloned the default remote branch, we don't need to do anything else
+if [ "${DEFAULT_HOSTING}" = "${BRANCHNAME_HOSTING}" ]; then
+  echo "We have clonned the default remote branch."
+else
+  fetch_success=true
+  git fetch origin "${BRANCHNAME_HOSTING}" 2> /dev/null || fetch_success=false
+
+  if [ "$fetch_success" = true ]; then
+    echo "remote branch ${BRANCHNAME_HOSTING} exists (fetch was successful), use it:"
+    git checkout -t "origin/${BRANCHNAME_HOSTING}"
+
+    # This is probably not needed, but let's be sure:
+    git pull origin ${BRANCHNAME_HOSTING}
+  else
+    echo "remote branch ${BRANCHNAME_HOSTING} does not exist, create it:"
+    git checkout -b "${BRANCHNAME_HOSTING}"
+  fi
+fi
 
 # Remove .git and ignores to make sure everything gets committed.
 cd $FOLDER_GITHUB
@@ -137,13 +161,13 @@ git show --stat
 if [[ "$GH_EVENT_REF" =~ ^refs\/tags ]]; then
   tag_name=${GH_EVENT_REF:10} # cut off the first 10 chars to get tag name
   set -x
-  git push --force origin $tag_name
+  git push origin $tag_name
   { [ "${DEBUG}" ] || set +x; } 2>/dev/null
   exit 0
 fi
 
 # HEAD will push the current branch
 set -x
-git push origin "${BRANCHNAME_HOSTING}" --force
+git push origin "${BRANCHNAME_HOSTING}"
 { [ "${DEBUG}" ] || set +x; } 2>/dev/null
 exit 0
