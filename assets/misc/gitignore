@@ -101,3 +101,10 @@ public.key
 /tests/backstop/backstop_data/bitmaps_test
 /tests/backstop/backstop_data/ci_report
 /tests/backstop/backstop_data/html_report
+
+#Pantheon upstream git detection.
+.github
+web/.gitignore
+web/sites/.gitignore
+web/sites/aliases.php
+web/sites/default/.gitignore
