@@ -27,40 +27,41 @@
                 "[project-root]/.editorconfig": false,
                 "[web-root]/sites/default/settings.php": {
                   "mode": "replace",
-                  "path": "assets/settings.php",
+                  "path": "assets/drupal10/settings.php",
                   "overwrite": false
                 },
+                "[web-root]/sites/default/settings/settings.pantheon.php": "assets/pantheon/settings.pantheon.php",
                 "[web-root]/sites/default/settings/settings.main.php": "assets/drupal10/settings.main.php",
                 "[web-root]/sites/default/settings/settings.dev.php": "assets/drupal10/settings.dev.php",
                 "[web-root]/sites/default/settings/settings.lando.php": "assets/drupal10/settings.lando.php",
                 "[web-root]/sites/default/settings/settings.live.php": "assets/drupal10/settings.live.php",
+                "[web-root]/sites/default/settings/settings.test.php": "assets/drupal10/settings.test.php",
                 "[web-root]/sites/default/settings/settings.local.php": {
                   "path": "assets/drupal10/settings.local.php",
                   "overwrite": false
                 },
-                "[web-root]/sites/default/settings/settings.test.php": "assets/drupal10/settings.test.php",
+                "[web-root]/sites/development.services.yml": "assets/drupal10/development.services.yml",
                 ".github/scripts/build.sh": "assets/github-actions/scripts/build.sh",
                 ".github/scripts/synctags.sh": "assets/github-actions/scripts/synctags.sh",
                 ".github/workflows/pantheon_deploy.yml": "assets/github-actions/workflows/pantheon_deploy.yml",
                 ".github/workflows/synctags.yml": "assets/github-actions/workflows/synctags.yml",
                 "[web-root]/sites/aliases.php": {
-                    "path": "assets/aliases.php",
+                    "path": "assets/drupal10/aliases.php",
                     "overwrite": false
                 },
-                "[web-root]/sites/development.services.yml": "assets/development.services.yml",
                 ".lando/fresh-install.sh": "assets/lando/fresh-install.sh",
                 ".lando/setup_terminus.sh": "assets/lando/setup_terminus.sh",
                 ".lando/verify_mac_ssh_socket.sh": "assets/lando/verify_mac_ssh_socket.sh",
-                ".gitignore": "assets/gitignore",
+                ".gitignore": "assets/misc/gitignore",
                 "pantheon.upstream.yml": {
-                  "path": "assets/pantheon.upstream.yml",
+                  "path": "assets/pantheon/pantheon.upstream.yml",
                   "overwrite": false
                 },
                 "pantheon.yml": {
-                  "path": "assets/pantheon.yml",
+                  "path": "assets/pantheon/pantheon.yml",
                   "overwrite": false
                 },
-                "[web-root]/private/scripts/deploy_after.php": "assets/deploy_after.php"
+                "[web-root]/private/scripts/deploy_after.php": "assets/misc/deploy_after.php"
             }
         }
     }
