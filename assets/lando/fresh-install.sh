@@ -99,13 +99,13 @@ if [ "$from_local" = true ]; then
     echo "* Found /app/.local_dbs/$remote.sql.gz. Importing..."
   else
     echo "* Local copy at /app/.local_dbs/$remote.sql.gz. not found. Trying to get one from $remote..."
-    echo "* drush -Dssh.tty=0 @$aliasplatform.$remote sql-dump --gzip --structure-tables-key=common | pv > /app/.local_dbs/$remote.sql.gz"
-    drush -Dssh.tty=0 @$aliasplatform.$remote sql-dump --gzip --structure-tables-key=common | pv > /app/.local_dbs/$remote.sql.gz
+    echo "* drush @$aliasplatform.$remote sql-dump --gzip --structure-tables-key=common | pv > /app/.local_dbs/$remote.sql.gz"
+    drush @$aliasplatform.$remote sql-dump --gzip --structure-tables-key=common | pv > /app/.local_dbs/$remote.sql.gz
   fi
 else
   echo "* Fresh DB dump from $remote is preferred. Saving it to /app/.local_dbs/$remote.sql.gz for later use."
-  echo "* drush -Dssh.tty=0 @$aliasplatform.$remote sql-dump --gzip --structure-tables-key=common | pv > /app/.local_dbs/$remote.sql.gz"
-  drush -Dssh.tty=0 @$aliasplatform.$remote sql-dump --gzip --structure-tables-key=common | pv > /app/.local_dbs/$remote.sql.gz
+  echo "* drush @$aliasplatform.$remote sql-dump --gzip --structure-tables-key=common | pv > /app/.local_dbs/$remote.sql.gz"
+  drush @$aliasplatform.$remote sql-dump --gzip --structure-tables-key=common | pv > /app/.local_dbs/$remote.sql.gz
 fi
 
 echo "Wipe local DB: drush @$aliasplatform.lando sql-drop -y"
@@ -113,8 +113,8 @@ drush @$aliasplatform.lando sql-drop -y
 
 dump_size=$(ls -l /app/.local_dbs/$remote.sql.gz | awk '{ print $5 }')
 # gzip runs after pv to get the same pv statistic / size output as when copying gziped db from remote above.
-echo "Import DB: cat /app/.local_dbs/$remote.sql.gz | pv -s $dump_size | gzip -d | drush -Dssh.tty=0 @$aliasplatform.lando sqlc"
-cat /app/.local_dbs/$remote.sql.gz | pv -s $dump_size | gzip -d | drush -Dssh.tty=0 @$aliasplatform.lando sqlc
+echo "Import DB: cat /app/.local_dbs/$remote.sql.gz | pv -s $dump_size | gzip -d | drush @$aliasplatform.lando sqlc"
+cat /app/.local_dbs/$remote.sql.gz | pv -s $dump_size | gzip -d | drush @$aliasplatform.lando sqlc
 
 echo "Cache rebuild: drush @$aliasplatform.lando cr"
 drush @$aliasplatform.lando cr
@@ -123,8 +123,8 @@ if [ "$no_cim" = true ]; then
   echo "* Skipping config import."
 else
   echo "* Config import."
-  echo "* drush -Dssh.tty=0 @$aliasplatform.lando config-import --yes"
-  drush -Dssh.tty=0 @$aliasplatform.lando config-import --yes
+  echo "* drush @$aliasplatform.lando config-import --yes"
+  drush @$aliasplatform.lando config-import --yes
 fi
 
 echo -e "\n\n"
