@@ -27,12 +27,19 @@ while (("$#")); do
     echo -e  "\t-nc, --no-cim"
     echo -e  "\t\tSkip config import at the end."
     echo -e  ""
+    echo -e  "\t-ns, --no-sanitize"
+    echo -e  "\t\tSkip drush sql-sanitize at the end."
+    echo -e  ""
     echo -e  "\t-r, --remote"
     echo -e  "\t\tSelects the source environemt for databse and files. Defaults to $remote."
     exit 0
     ;;
   -l | --from-local)
     from_local=true
+    shift
+    ;;
+  -ns | --no-sanitize)
+    no_sanitize=true
     shift
     ;;
   -nc | --no-cim)
@@ -118,6 +125,13 @@ cat /app/.local_dbs/$remote.sql.gz | pv -s $dump_size | gzip -d | drush @$aliasp
 
 echo "Cache rebuild: drush @$aliasplatform.lando cr"
 drush @$aliasplatform.lando cr
+
+if [ "$no_sanitize" = true ]; then
+  echo "* Skipping drush sql-sanitize."
+else
+  echo "Sanitize DB: drush @$aliasplatform.lando sql-sanitize --yes"
+  drush @$aliasplatform.lando sql-sanitize --yes
+fi
 
 if [ "$no_cim" = true ]; then
   echo "* Skipping config import."
