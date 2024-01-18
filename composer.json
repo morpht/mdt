@@ -40,7 +40,6 @@
                   "path": "assets/drupal10/settings.local.php",
                   "overwrite": false
                 },
-                "[web-root]/sites/development.services.yml": "assets/drupal10/development.services.yml",
                 ".github/scripts/build.sh": "assets/github-actions/scripts/build.sh",
                 ".github/scripts/synctags.sh": "assets/github-actions/scripts/synctags.sh",
                 ".github/workflows/pantheon_deploy.yml": "assets/github-actions/workflows/pantheon_deploy.yml",
