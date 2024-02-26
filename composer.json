@@ -51,6 +51,7 @@
                 ".lando/fresh-install.sh": "assets/lando/fresh-install.sh",
                 ".lando/setup_terminus.sh": "assets/lando/setup_terminus.sh",
                 ".lando/verify_mac_ssh_socket.sh": "assets/lando/verify_mac_ssh_socket.sh",
+                ".lando/setup_php_spx.sh": "assets/lando/setup_php_spx.sh",
                 ".gitignore": "assets/misc/gitignore",
                 "pantheon.upstream.yml": {
                   "path": "assets/pantheon/pantheon.upstream.yml",
