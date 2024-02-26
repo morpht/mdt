@@ -95,3 +95,10 @@ public.key
 
 # Ignore .env files as they are personal
 /.env
+
+#Pantheon upstream git detection.
+.github
+web/.gitignore
+web/sites/.gitignore
+web/sites/aliases.php
+web/sites/default/.gitignore
