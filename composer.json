@@ -64,5 +64,15 @@
                 "[web-root]/private/scripts/deploy_after.php": "assets/misc/deploy_after.php"
             }
         }
+    },
+    "require-dev": {
+        "phpro/grumphp": "^2.5",
+        "ergebnis/composer-normalize": "^2.42"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpro/grumphp": true,
+            "ergebnis/composer-normalize": true
+        }
     }
 }
