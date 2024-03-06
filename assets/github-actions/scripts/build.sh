@@ -79,7 +79,7 @@ fi
 
 # Install dependencies.
 set -x
-composer install --prefer-dist --no-progress --no-suggest
+composer install --prefer-dist --no-progress --no-suggest --no-dev
 { [ "${DEBUG}" ] || set +x; } 2>/dev/null
 
 # Get current branch name.
