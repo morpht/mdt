@@ -95,3 +95,9 @@ public.key
 
 # Ignore .env files as they are personal
 /.env
+
+# Ignore Test and CI artifacts.
+/tests/backstop/backstop_data/bitmaps_reference
+/tests/backstop/backstop_data/bitmaps_test
+/tests/backstop/backstop_data/ci_report
+/tests/backstop/backstop_data/html_report
