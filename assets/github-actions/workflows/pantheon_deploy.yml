@@ -12,6 +12,20 @@ jobs:
       - name: Validate composer.json and composer.lock
         if: "!contains(github.ref, 'refs/tags/') && github.event.name != 'delete'"
         run: composer validate
+      - name: Notify Slack on Failure
+        if: failure()
+        id: slack
+        uses: slackapi/slack-github-action@v1.26.0
+        with:
+          payload: >
+            {
+              "channel": "${{ env.SLACK_CHANNEL }}",
+              "text": "Failure in Workflow: ${{ github.workflow }}. Commit: ${{ github.sha }} by ${{ github.actor }}. Check <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|workflow run> for details."
+            }
+        env:
+          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
     # - name: Fail if branch name does not match pantheon limitations
     #   run: TODO
 
