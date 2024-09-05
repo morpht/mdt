@@ -101,3 +101,6 @@ public.key
 /tests/backstop/backstop_data/bitmaps_test
 /tests/backstop/backstop_data/ci_report
 /tests/backstop/backstop_data/html_report
+
+#Ignore Google Application credentials.
+google_application_credentials.json
