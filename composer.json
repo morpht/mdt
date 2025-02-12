@@ -16,7 +16,7 @@
         }
     ],
     "conflict": {
-        "drupal/core": "<10"
+        "drupal/core": "<11"
     },
     "suggest": {
         "pantheon-systems/drupal-integrations": "Required for pantheon settings configuration file."
