@@ -9,7 +9,7 @@ $loc_db_name = "drupal";
 $loc_db_user = 'drupal';
 $loc_db_pass = 'drupal';
 $loc_db_host = "127.0.0.1";
-$loc_db_port = '32574';
+$loc_db_port = '3306';
 
 $databases = [
   'default' =>
