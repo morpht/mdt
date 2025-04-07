@@ -1,10 +1,10 @@
----
+name: Pantheon Deploy
 # Triggers the workflow on push or delete events
 on: [push,delete]
 
 jobs:
   validate:
-    name: Validate Composer
+    name: Validate Composer Files
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -29,12 +29,12 @@ jobs:
     # - name: Fail if branch name does not match pantheon limitations
     #   run: TODO
 
-  gitsync:
-    name: Build and push repo
+  build_deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest
     needs: validate
     steps:
-      - name: Checkout.
+      - name: Checkout Repository
         uses: actions/checkout@v2
         with:
           fetch-depth: '0'
@@ -44,7 +44,7 @@ jobs:
           php-version: '8.3'
           tools: composer:v2
           extensions: mbstring, gd, intl, yaml, bcmath, curl
-      - name: Execute build script
+      - name: Run build script
         env:
           GIT_REMOTE: ${{ secrets.GIT_REMOTE_HOSTING }}
           GIT_SSH_PRIVATE_KEY: ${{ secrets.PANTHEON_DEPLOYER_SSH_PRIVATE }}

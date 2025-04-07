@@ -104,6 +104,17 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
 }
 
 /**
+ * Github Actions environment settings.
+ */
+if (getenv('CI') == 'GITHUB_ACTIONS') {
+  $path = DRUPAL_ROOT . "/sites/$site/settings/settings.ci.php";
+  // Load settings.
+  if (!empty($path) && file_exists($path)) {
+    require $path;
+  }
+}
+
+/**
  * Lando environment settings.
  */
 if (isset($_ENV["LANDO_APP_NAME"])) {
