@@ -105,6 +105,7 @@ public.key
 /tests/backstop/backstop_data/html_report
 
 # Cypress folders
+cypress.env.json
 /tests/cypress/screenshots/
 /tests/cypress/videos/
 /tests/backstop/backstop_data/
