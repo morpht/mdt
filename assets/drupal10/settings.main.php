@@ -106,7 +106,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
 /**
  * Github Actions environment settings.
  */
-if (getenv('CI') == 'GITHUB_ACTIONS') {
+if (getenv('CI')) {
   $path = DRUPAL_ROOT . "/sites/$site/settings/settings.ci.php";
   // Load settings.
   if (!empty($path) && file_exists($path)) {
