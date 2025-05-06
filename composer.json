@@ -34,6 +34,7 @@
                 "[web-root]/sites/default/settings/pantheon-preproduction-services.yml": "assets/pantheon/pantheon-preproduction-services.yml",
                 "[web-root]/sites/default/settings/pantheon-production-services.yml": "assets/pantheon/pantheon-production-services.yml",
                 "[web-root]/sites/default/settings/settings.main.php": "assets/drupal11/settings.main.php",
+                "[web-root]/sites/default/settings/settings.ci.php": "assets/drupal11/settings.ci.php",
                 "[web-root]/sites/default/settings/settings.dev.php": "assets/drupal11/settings.dev.php",
                 "[web-root]/sites/default/settings/settings.lando.php": "assets/drupal11/settings.lando.php",
                 "[web-root]/sites/default/settings/settings.live.php": "assets/drupal11/settings.live.php",
