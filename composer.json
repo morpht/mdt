@@ -66,5 +66,13 @@
                 "[web-root]/private/scripts/deploy_after.php": "assets/misc/deploy_after.php"
             }
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "find .lando/ .github/scripts/ -type f -name '*.sh' | xargs --no-run-if-empty chmod a+x"
+        ],
+        "post-update-cmd": [
+            "find .lando/ .github/scripts/ -type f -name '*.sh' | xargs --no-run-if-empty chmod a+x"
+        ]
     }
 }
