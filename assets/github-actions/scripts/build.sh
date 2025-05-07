@@ -148,6 +148,10 @@ cd $FOLDER_GITHUB
 # Swap out .git folders
 cp -r "${FOLDER_HOSTING}/.git" .
 
+# Hotfix for #29913
+echo "vendor/google/* binary" >> .gitattributes
+echo "vendor/google/**/* binary" >> .gitattributes
+
 # Commit new artefact.
 git add -A .
 git commit -m "${commitmessage}" -m "GitHub build of ${BRANCHNAME} (${BRANCHNAME_HOSTING}) @ ${shalite}." --no-gpg-sign
