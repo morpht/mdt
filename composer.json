@@ -8,7 +8,7 @@
         "deployment",
         "drupal"
     ],
-    "license": "GPL-2.0-only",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Morpht",
@@ -16,7 +16,7 @@
         }
     ],
     "conflict": {
-        "drupal/core": "<10"
+        "drupal/core": "<11"
     },
     "suggest": {
         "pantheon-systems/drupal-integrations": "Required for pantheon settings configuration file."
@@ -27,20 +27,20 @@
                 "[project-root]/.editorconfig": false,
                 "[web-root]/sites/default/settings.php": {
                   "mode": "replace",
-                  "path": "assets/drupal10/settings.php",
+                  "path": "assets/drupal11/settings.php",
                   "overwrite": false
                 },
                 "[web-root]/sites/default/settings/settings.pantheon.php": "assets/pantheon/settings.pantheon.php",
                 "[web-root]/sites/default/settings/pantheon-preproduction-services.yml": "assets/pantheon/pantheon-preproduction-services.yml",
                 "[web-root]/sites/default/settings/pantheon-production-services.yml": "assets/pantheon/pantheon-production-services.yml",
-                "[web-root]/sites/default/settings/settings.main.php": "assets/drupal10/settings.main.php",
-                "[web-root]/sites/default/settings/settings.ci.php": "assets/drupal10/settings.ci.php",
-                "[web-root]/sites/default/settings/settings.dev.php": "assets/drupal10/settings.dev.php",
-                "[web-root]/sites/default/settings/settings.lando.php": "assets/drupal10/settings.lando.php",
-                "[web-root]/sites/default/settings/settings.live.php": "assets/drupal10/settings.live.php",
-                "[web-root]/sites/default/settings/settings.test.php": "assets/drupal10/settings.test.php",
+                "[web-root]/sites/default/settings/settings.main.php": "assets/drupal11/settings.main.php",
+                "[web-root]/sites/default/settings/settings.ci.php": "assets/drupal11/settings.ci.php",
+                "[web-root]/sites/default/settings/settings.dev.php": "assets/drupal11/settings.dev.php",
+                "[web-root]/sites/default/settings/settings.lando.php": "assets/drupal11/settings.lando.php",
+                "[web-root]/sites/default/settings/settings.live.php": "assets/drupal11/settings.live.php",
+                "[web-root]/sites/default/settings/settings.test.php": "assets/drupal11/settings.test.php",
                 "[web-root]/sites/default/settings/settings.local.php": {
-                  "path": "assets/drupal10/settings.local.php",
+                  "path": "assets/drupal11/settings.local.php",
                   "overwrite": false
                 },
                 ".github/scripts/build.sh": "assets/github-actions/scripts/build.sh",
@@ -48,7 +48,7 @@
                 ".github/workflows/pantheon_deploy.yml": "assets/github-actions/workflows/pantheon_deploy.yml",
                 ".github/workflows/synctags.yml": "assets/github-actions/workflows/synctags.yml",
                 "[web-root]/sites/aliases.php": {
-                    "path": "assets/drupal10/aliases.php",
+                    "path": "assets/drupal11/aliases.php",
                     "overwrite": false
                 },
                 ".lando/fresh-install.sh": "assets/lando/fresh-install.sh",
