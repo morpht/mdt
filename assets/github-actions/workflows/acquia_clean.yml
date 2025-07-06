@@ -1,0 +1,33 @@
+name: Acquia Clean
+
+on: delete
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  delete:
+    name: Clean up
+
+    runs-on: ubuntu-latest
+
+    env:
+      SSH_DEPLOYMENT_KEY: ${{ secrets.ACQUIA_DEPLOYER_SSH_PRIVATE }}
+      GIT_BRANCH_DELETE: ${{ github.event.ref }}
+        # for 'delete' event, the deleted branch name is in github.event.ref
+      GIT_REMOTE: ${{ vars.GIT_REMOTE_HOSTING }}
+      GIT_DEFAULT_BRANCH: "master"
+      GIT_NAME: "Github Actions"
+      GIT_EMAIL: "TBD"
+
+    steps:
+      - name: Checkout.
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: '0'
+
+      - name: Delete branch
+        if: env.SSH_DEPLOYMENT_KEY && (github.event_name == 'delete' ) && (env.GH_EVENT_REF != env.GIT_DEFAULT_BRANCH)
+          # We will never ever want to delete the main branch
+        run: bash $GITHUB_WORKSPACE/.github/scripts/delete_branch.sh
