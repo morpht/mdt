@@ -148,6 +148,11 @@ cd $FOLDER_GITHUB
 # Swap out .git folders
 cp -r "${FOLDER_HOSTING}/.git" .
 
+# Generate a random string of 8 characters (including any printable characters) and write it to deployment_identifier
+RANDOM_STRING=$(head /dev/urandom | tr -dc '[:print:]' | head -c 8)
+echo $RANDOM_STRING > deployment_identifier
+echo "Generated deployment identifier: $RANDOM_STRING"
+
 # Commit new artefact.
 git add -A .
 git commit -m "${commitmessage}" -m "GitHub build of ${BRANCHNAME} (${BRANCHNAME_HOSTING}) @ ${shalite}." --no-gpg-sign
