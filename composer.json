@@ -15,6 +15,9 @@
             "email": "murray@morpht.com"
         }
     ],
+    "require": {
+        "drupal/core-composer-scaffold": "^11"
+    },
     "conflict": {
         "drupal/core": "<11"
     },
