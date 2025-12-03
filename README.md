@@ -19,25 +19,27 @@ composer require morpht/mdt
 
 ### Required Configuration
 
-**Important:** This package needs to be explicitly allowed in your project's `composer.json`. You can add this configuration using the following Composer command:
+**Important:** This package needs to be explicitly allowed in your project's `composer.json` to enable scaffolding. You can add this configuration using the following Composer command:
 
 ```bash
-composer config allow-plugins.morpht/mdt true
+composer config extra.drupal-scaffold.allowed-packages --merge --json '["morpht/mdt"]'
 ```
 
 Alternatively, you can manually add it to your project's `composer.json`:
 
 ```json
 {
-    "config": {
-        "allow-plugins": {
-            "morpht/mdt": true
+    "extra": {
+        "drupal-scaffold": {
+            "allowed-packages": [
+                "morpht/mdt"
+            ]
         }
     }
 }
 ```
 
-Without this configuration, Composer will prompt you to allow the plugin or the scaffolding features will not work properly.
+Without this configuration, the scaffolding features will not work and configuration files will not be copied to your project.
 
 ## Usage
 
