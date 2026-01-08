@@ -57,6 +57,15 @@
                 ".lando/fresh-install.sh": "assets/lando/fresh-install.sh",
                 ".lando/setup_terminus.sh": "assets/lando/setup_terminus.sh",
                 ".lando/verify_mac_ssh_socket.sh": "assets/lando/verify_mac_ssh_socket.sh",
+                "[web-root]/sites/default/settings/settings.ddev.php": "assets/drupal11/settings.ddev.php",
+                ".ddev/commands/web/fresh-install": "assets/ddev/fresh-install.sh",
+                ".ddev/scripts/setup_terminus.sh": "assets/ddev/setup_terminus.sh",
+                ".ddev/templates/settings.local.php": {
+                  "path": "assets/drupal11/settings.local.php",
+                  "overwrite": false
+                },
+                ".ddev/commands/web/.gitignore": "assets/ddev/commands-web-gitignore",
+                ".ddev/scripts/.gitignore": "assets/ddev/scripts-gitignore",
                 ".gitignore": "assets/misc/gitignore",
                 "pantheon.upstream.yml": {
                   "path": "assets/pantheon/pantheon.upstream.yml",
