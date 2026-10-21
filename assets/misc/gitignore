@@ -55,6 +55,7 @@ example.gitignore
 example.settings.local.php
 example.sites.php
 default.settings.php
+settings.local.php
 
 # Composer-generated files that we are not likely to change
 /bin/
@@ -112,3 +113,7 @@ cypress.env.json
 
 #Ignore Google Application credentials
 google_application_credentials.json
+
+# Ignore Claude Code local files; the project skills are shared
+/.claude/*
+!/.claude/skills/

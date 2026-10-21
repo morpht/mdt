@@ -4,6 +4,7 @@ api_version: 1
 
 web_docroot: true
 drush_version: 10
+php_version: 8.4
 build_step: false
 
 workflows:

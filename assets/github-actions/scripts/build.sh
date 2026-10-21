@@ -145,6 +145,10 @@ fi
 cd $FOLDER_GITHUB
 (find . -type d -name ".git" && find . -name ".gitignore" && find . -name ".gitmodules") | xargs rm -rfv
 
+# GitBook documentation cleanup, if any.
+# The user guide is published by GitBook, not the site; keep its screenshots out of the artifact.
+rm -rf docs .gitbook.yaml
+
 # Swap out .git folders
 cp -r "${FOLDER_HOSTING}/.git" .
 
